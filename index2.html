@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restricciones Legales - Programa Grandes Bosques de Mesoamérica</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: #00125c;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -5%;
+            width: 50%;
+            height: 140%;
+            background: 
+                radial-gradient(circle at 2px 2px, #ffcc03 2px, transparent 2px),
+                radial-gradient(circle at 2px 2px, rgba(255, 204, 3, 0.6) 2px, transparent 2px),
+                radial-gradient(circle at 2px 2px, rgba(255, 204, 3, 0.3) 2px, transparent 2px);
+            background-size: 25px 25px, 35px 35px, 45px 45px;
+            background-position: 0 0, 12px 12px, 24px 24px;
+            transform: rotate(-20deg) skew(-10deg);
+            pointer-events: none;
+            opacity: 0.8;
+        }
+
+        .global-gateway-logo {
+            position: absolute;
+            top: 30px;
+            left: 40px;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .gg-text {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .gg-stars {
+            display: flex;
+            flex-wrap: wrap;
+            width: 24px;
+            gap: 2px;
+            margin-right: 8px;
+        }
+
+        .gg-star {
+            color: #ffcc03;
+            font-size: 8px;
+        }
+
+        .eu-flag {
+            width: 50px;
+            height: 38px;
+            background-color: #003399;
+            border: 2px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .eu-flag::before {
+            content: '★★★★★★★★★★★★';
+            color: #ffcc03;
+            font-size: 6px;
+            letter-spacing: -1px;
+            display: flex;
+            flex-wrap: wrap;
+            width: 30px;
+            text-align: center;
+        }
+
+        .title-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding-top: 40px;
+        }
+
+        .program-label {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .main-title {
+            font-size: 56px;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .title-dot {
+            color: #ffcc03;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            font-weight: 400;
+            color: #ffffff;
+            opacity: 0.9;
+        }
+
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        .legal-title {
+            font-size: 36px;
+            font-weight: 600;
+            color: #00125c;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #ffcc03;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #00125c;
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 8px;
+            height: 8px;
+            background-color: #ffcc03;
+            border-radius: 50%;
+        }
+
+        .section-content {
+            font-size: 16px;
+            font-weight: 300;
+            color: #333;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .section-content strong {
+            font-weight: 600;
+            color: #00125c;
+        }
+
+        .list {
+            margin-left: 40px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .list li {
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #ededed 0%, #d0d0d0 100%);
+            border-left: 4px solid #ffcc03;
+            padding: 25px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-box::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: -10px;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle at 3px 3px, rgba(255, 204, 3, 0.2) 2px, transparent 2px);
+            background-size: 15px 15px;
+            pointer-events: none;
+        }
+
+        .highlight-box p {
+            font-size: 15px;
+            font-weight: 400;
+            color: #00125c;
+            margin-bottom: 10px;
+        }
+
+        .footer {
+            background: linear-gradient(to bottom, #ededed 0%, #d0d0d0 100%);
+            padding: 50px 40px;
+            margin-top: 60px;
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(to right, #00125c 0%, #ffcc03 50%, #00125c 100%);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .footer-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #00125c;
+            margin-bottom: 20px;
+        }
+
+        .logo-placeholder {
+            height: 50px;
+            background-color: #9c9b9b;
+            padding: 0 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: white;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 20px;
+            }
+
+            .global-gateway-logo {
+                position: static;
+                margin-bottom: 20px;
+                padding: 0 20px;
+            }
+
+            .gg-text {
+                font-size: 18px;
+            }
+
+            .title-container {
+                padding-top: 20px;
+            }
+
+            .main-title {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 18px;
+            }
+
+            .content {
+                padding: 40px 20px;
+            }
+
+            .legal-title {
+                font-size: 28px;
+            }
+
+            .section-title {
+                font-size: 20px;
+            }
+
+            .list {
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="global-gateway-logo">
+            <div style="display: flex; align-items: center;">
+                <div class="gg-stars">
+                    <span class="gg-star">★</span>
+                    <span class="gg-star">★</span>
+                    <span class="gg-star">★</span>
+                    <span class="gg-star">★</span>
+                    <span class="gg-star">★</span>
+                    <span class="gg-star">★</span>
+                    <span class="gg-star">★</span>
+                    <span class="gg-star">★</span>
+                </div>
+                <div class="gg-text">Global<br>Gateway</div>
+            </div>
+            <div class="eu-flag"></div>
+        </div>
+        <div class="title-container">
+            <div class="program-label">Programa</div>
+            <h1 class="main-title">Grandes Bosques<br>de Mesoamérica<span class="title-dot">.</span></h1>
+            <p class="subtitle">Un aporte del Equipo Europa</p>
+        </div>
+    </header>
+
+    <main class="content">
+        <h2 class="legal-title">Restricciones Legales y Condiciones de Uso</h2>
+
+        <section class="section">
+            <h3 class="section-title">1. Propiedad Intelectual</h3>
+            <p class="section-content">
+                Todo el contenido presente en este sitio web, incluyendo pero no limitándose a textos, gráficos, logotipos, iconos, imágenes, clips de audio, descargas digitales y compilaciones de datos, es propiedad del Programa Grandes Bosques de Mesoamérica, la Unión Europea y sus Estados Miembros participantes, o está licenciado para su uso por estos.
+            </p>
+            <p class="section-content">
+                <strong>La identidad visual del programa</strong>, incluyendo el título "Programa Grandes Bosques de Mesoamérica", la paleta de colores, tipografías y elementos gráficos derivados de la Estrategia Global Gateway, están protegidos por derechos de autor y marcas registradas.
+            </p>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">2. Uso Autorizado de Materiales</h3>
+            <p class="section-content">
+                El uso de los materiales del programa está sujeto a las siguientes condiciones:
+            </p>
+            <ul class="list">
+                <li>Los materiales pueden ser utilizados únicamente con fines informativos y educativos relacionados con la conservación forestal y el desarrollo sostenible en Mesoamérica.</li>
+                <li>Cualquier reproducción debe incluir la atribución apropiada al Programa Grandes Bosques de Mesoamérica y la Unión Europea.</li>
+                <li>No se permite el uso comercial sin autorización previa por escrito.</li>
+                <li>La modificación de logotipos, firmas institucionales o elementos de identidad visual requiere aprobación expresa de la Unidad de Apoyo del PGBM.</li>
+            </ul>
+        </section>
+
+        <div class="highlight-box">
+            <p><strong>Importante:</strong> Las organizaciones socias y agencias ejecutoras deben seguir estrictamente las directrices establecidas en la Guía de Identidad Visual del PGBM para cualquier uso de elementos gráficos y comunicacionales del programa.</p>
+        </div>
+
+        <section class="section">
+            <h3 class="section-title">3. Restricciones de Uso de Firmas Institucionales</h3>
+            <p class="section-content">
+                El uso de las firmas institucionales del PGBM está restringido a:
+            </p>
+            <ul class="list">
+                <li>Entidades cofinanciadoras oficialmente reconocidas: Unión Europea, Cooperación Española, Ministerio Federal de Medioambiente de Alemania, y Cooperación Sueca.</li>
+                <li>Agencias ejecutoras autorizadas: AECID, Expertise France, GIZ y ASDI.</li>
+                <li>Organizaciones socias aprobadas en el marco de componentes específicos del programa.</li>
+            </ul>
+            <p class="section-content">
+                Cualquier uso no autorizado de las firmas institucionales será considerado una violación de los derechos de propiedad intelectual y podrá dar lugar a acciones legales.
+            </p>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">4. Protección de Datos y Privacidad</h3>
+            <p class="section-content">
+                El programa se compromete a proteger la privacidad de los usuarios y beneficiarios conforme a las normativas europeas de protección de datos (GDPR) y las legislaciones nacionales aplicables en los países de Mesoamérica donde opera el programa.
+            </p>
+            <p class="section-content">
+                Los datos personales recopilados serán utilizados exclusivamente para los fines del programa y no serán compartidos con terceros sin consentimiento explícito, salvo cuando sea requerido por ley.
+            </p>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">5. Limitación de Responsabilidad</h3>
+            <p class="section-content">
+                El Programa Grandes Bosques de Mesoamérica y sus entidades asociadas no garantizan que el contenido de este sitio web esté libre de errores o que sea apropiado para su uso en todas las ubicaciones. El acceso a ciertos contenidos puede no ser legal en algunas jurisdicciones.
+            </p>
+            <p class="section-content">
+                El programa no se hace responsable por daños directos, indirectos, incidentales o consecuentes que resulten del uso o la imposibilidad de usar los materiales en este sitio.
+            </p>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">6. Enlaces a Sitios de Terceros</h3>
+            <p class="section-content">
+                Este sitio puede contener enlaces a sitios web de terceros. Estos enlaces se proporcionan únicamente para conveniencia del usuario. El PGBM no controla ni respalda estos sitios externos y no es responsable por su contenido.
+            </p>
+        </section>
+
+        <section class="section">
+            <h3 class="section-title">7. Jurisdicción y Ley Aplicable</h3>
+            <p class="section-content">
+                Estas restricciones legales se rigen por las leyes de la Unión Europea y las legislaciones nacionales de los países donde opera el programa. Cualquier disputa relacionada con el uso de este sitio web será resuelta en las jurisdicciones competentes correspondientes.
+            </p>
+        </section>
+
+        <div class="highlight-box">
+            <p><strong>Contacto:</strong> Para consultas sobre el uso de materiales, solicitudes de autorización o información adicional sobre estas restricciones legales, por favor contacte a la Unidad de Apoyo del Programa Grandes Bosques de Mesoamérica.</p>
+        </div>
+
+        <section class="section">
+            <p class="section-content" style="margin-top: 40px; font-style: italic; color: #9c9b9b;">
+                Última actualización: Octubre 2025
+            </p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="footer-text">Co financiado por:</p>
+            <div class="footer-logos">
+                <div class="logo-placeholder">UNIÓN EUROPEA</div>
+                <div class="logo-placeholder">COOPERACIÓN ESPAÑOLA</div>
+                <div class="logo-placeholder">ALEMANIA</div>
+                <div class="logo-placeholder">COOPERACIÓN SUECA</div>
+            </div>
+            <p class="footer-text" style="margin-top: 30px;">Implementado por:</p>
+            <div class="footer-logos">
+                <div class="logo-placeholder">AECID</div>
+                <div class="logo-placeholder">EXPERTISE FRANCE</div>
+                <div class="logo-placeholder">GIZ</div>
+                <div class="logo-placeholder">ASDI</div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
